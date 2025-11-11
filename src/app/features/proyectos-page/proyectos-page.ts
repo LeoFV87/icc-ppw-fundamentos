@@ -1,32 +1,43 @@
 import { ChangeDetectionStrategy, Component, signal, Signal } from '@angular/core';
+import { ListadoProyectos } from './components/listado-proyectos/listado-proyectos';
+
 
 @Component({
   selector: 'app-proyectos-page',
-  imports: [],
+  imports: [ListadoProyectos],
   templateUrl: './proyectos-page.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProyectosPage {
-changeName() {
-throw new Error('Method not implemented.');
-}
 
-name = signal('');
-description= signal('');
+  name = signal('');
+  description = signal('');
 
-   proyectos = signal<Proyecto []>([
+  proyectos = signal<Proyecto[]>([
+    { id: 1, nombre: 'Proyecto A', descripcion: 'descripcion' }
+  ]);
+  
+  changeName(value: string) {
+    this.name.set(value);
+  }
 
-    {
-      id: 1, nombre: 'Proyecto A',
-      descripcion: 'descripcion'
+  changeDescription(value: string) {
+    this.description.set(value);
+  }
+
+  addProyecto() {
+
+    const nuevo: Proyecto = {
+      id: this.proyectos().length + 1,
+      nombre: this.name(),
+      descripcion: this.description()
+    };
+
+    this.proyectos.update(prev => [...prev, nuevo]);
+    this.name.set('');
+    this.description.set('');
 
 
-    }
-
-
-
-   ]
-
-  )
+  }
 
 }
