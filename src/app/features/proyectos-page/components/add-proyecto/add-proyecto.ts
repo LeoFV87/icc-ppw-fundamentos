@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, output, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Output, output, signal } from '@angular/core';
 
 @Component({
   selector: 'add-proyecto',
@@ -13,6 +13,7 @@ export class AddProyecto {
   description = signal('');
 
     newProyecto = output<Proyecto>();
+    @Output() removeProyecto = new EventEmitter<void>();
 
    addProyecto() {
 
@@ -26,8 +27,6 @@ export class AddProyecto {
       this.name.set(''),
       this.description.set('')
    
-
-
   }
 
    changeName(value: string) {
@@ -38,7 +37,9 @@ export class AddProyecto {
     this.description.set(value);
   }
 
-
+  delFirstProyecto() {
+    this.removeProyecto.emit(); 
+  }
 
 
 

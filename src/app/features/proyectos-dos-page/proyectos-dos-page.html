@@ -3,4 +3,6 @@
 ></listado-proyectos>
 
 
-<add-proyecto (newProyecto)="proyectosService.addProyecto($event)"></add-proyecto>
+<add-proyecto (newProyecto)="proyectosService.addProyecto($event)"
+      (removeProyecto)="proyectosService.delFirstProyecto()"
+></add-proyecto>

@@ -15,8 +15,5 @@ export class ListadoProyectos {
 
    proyectos = input.required<Proyecto[]>();
 
-  
-
-
 
 }
