@@ -33,18 +33,6 @@ export class ProyectosService {
        ]
    }
 
-
- // name = signal('');
- // description = signal('');
-
- //  changeName(value: string) {
-  //  this.name.set(value);
- // }
-
-  //changeDescription(value: string) {
-   // this.description.set(value);
-  //}
-
   addProyecto(newProyecto : Proyecto){
      this.proyectos.set([...this.proyectos(), newProyecto]);
   }
@@ -54,6 +42,4 @@ export class ProyectosService {
        this.proyectos.set(this.proyectos().slice(1));
    }
   
-
-
 }

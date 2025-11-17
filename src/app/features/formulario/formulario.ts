@@ -26,7 +26,6 @@ isValidField (fieldName: string): boolean | null {
 
 }
 
-
 getFieldError(fieldName: string): string | null {
    if(!this.myForm.controls[fieldName]) return null;
 
@@ -48,7 +47,6 @@ getFieldError(fieldName: string): string | null {
     }
     return null;
 }
-
         private fb= inject(FormBuilder);
 
         myForm: FormGroup = this.fb.group ({
@@ -57,6 +55,4 @@ getFieldError(fieldName: string): string | null {
           correo: ['', [Validators.required, Validators.email]]
         
         });
-
-
  }

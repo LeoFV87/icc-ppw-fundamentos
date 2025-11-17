@@ -1,5 +1,4 @@
 <p>proyectos-page works!</p>
-
 <section>
 
     <div>
@@ -14,7 +13,6 @@
          (change)="changeName(txName.value)"
          #txName
       >
-
       <input
       
          type="text"
@@ -28,8 +26,6 @@
       <button (click)="addProyecto()">Agregar</button>
 
     </div>
-
-
 <div>
      <h3>Listado</h3>
 
@@ -43,7 +39,6 @@
      @for(proyecto of proyectos(); track $index) {
 
         <li>{{proyecto.nombre}} -{{proyecto.descripcion}}</li>
-
      }
 
 </div>
