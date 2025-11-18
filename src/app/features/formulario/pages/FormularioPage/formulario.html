@@ -16,8 +16,8 @@
             placeholder="Nombre del usuario"
             formControlName="nombre"
           />
-          @if (isValidField('nombre')) {
-            <p>{{ getFieldError('nombre') }}</p>
+          @if (formUtils.isValidField(myForm,'nombre')) {
+            <p>{{ formUtils.getFieldError(myForm,'nombre') }}</p>
           }
         </div>
       </div>
@@ -31,8 +31,8 @@
             placeholder="Edad del usuario"
             formControlName="edad"
           />
-          @if (isValidField('edad')) {
-            <p>{{ getFieldError('edad') }}</p>
+          @if (formUtils.isValidField(myForm, 'edad')) {
+            <p>{{ formUtils.getFieldError(myForm,'edad') }}</p>
           }
         </div>
       </div>
@@ -46,8 +46,8 @@
             placeholder="Correo del usuario"
             formControlName="correo"
           />
-          @if (isValidField('correo')) {
-            <p>{{ getFieldError('correo') }}</p>
+          @if (formUtils.isValidField(myForm,'correo')) {
+            <p>{{ formUtils.getFieldError(myForm,'correo') }}</p>
           }
         </div>
       </div>
