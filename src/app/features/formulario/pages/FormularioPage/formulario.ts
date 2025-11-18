@@ -10,35 +10,26 @@ import { FormUtils } from '../../form-utils';
 })
 export class Formulario {
 
-    formUtils = FormUtils;
+  formUtils = FormUtils;
 
-        private fb= inject(FormBuilder);
+  private fb = inject(FormBuilder);
 
-        myForm: FormGroup = this.fb.group ({
-          nombre: ['', [Validators.required, Validators.minLength(3)]],
-          edad:  [0, [Validators.required, Validators.min(18)]],
-          correo: ['', [Validators.required, Validators.email]]
-        
-        });
+  myForm: FormGroup = this.fb.group({
+    nombre: ['', [Validators.required, Validators.minLength(3)]],
+    edad: [0, [Validators.required, Validators.min(18)]],
+    correo: ['', [Validators.required, Validators.email]]
 
-/*
-onSubmit() {
-   if(this.myForm.invalid){
-    this.myForm.markAllAsTouched();
-    return;
-   }
+  });
+
+
+  onSubmit() {
+    if (this.myForm.invalid) {
+      this.myForm.markAllAsTouched();
+      return;
+    }
+    console.log('Formulario válido:', this.myForm.value);
+  }
+
 
 }
-*/
-
- onSubmit() {
-      if(this.myForm.invalid){
-        this.myForm.markAllAsTouched();
-        return;
-      }
-      console.log('Formulario válido:', this.myForm.value);
-    } 
-
-
- }
 

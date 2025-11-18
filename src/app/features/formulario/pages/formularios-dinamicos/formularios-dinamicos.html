@@ -23,7 +23,7 @@
             }
         </div>
     </div>
-    
+
     <div class="mb-3 row">
         <label class="col-sm-3 col-form-label">Agregar</label>
         <div class="col-sm-9">
@@ -43,7 +43,49 @@
                     Agregar
                 </button>
             </div>
-            </div>
+        </div>
     </div>
-    
-    </form>
+
+    <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">Lenguajes</label>
+        <div class="col-sm-9">
+            <div formArrayName="lenguajes">
+
+                @for(item of lenguajes.controls; track item; let i = $index) {
+                <div class="input-group mb-2">
+                    <input
+                        class="form-control"
+                        [formControlName]="i"
+                    >
+                    <button
+                        class="btn btn-outline-danger"
+                        type="button"
+                        (click)="onDeleteLenguaje(i)"
+                    >
+                        Eliminar
+                    </button>
+                </div>
+
+                @if(formUtils.isValidFieldInArray(lenguajes, i)) {
+                <span class="form-text text-danger">
+                    {{ formUtils.getFieldErrorInArray(lenguajes, i) }}
+                </span>
+                }
+                }
+            </div>
+
+            @if(formUtils.isValidField(myForm, 'lenguajes')) {
+            <span class="form-text text-danger">Debe tener mínimo 3 lenguajes</span>
+            }
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-9 offset-sm-3">
+            <button type="submit" class="btn btn-primary">
+                Guardar
+            </button>
+        </div>
+    </div>
+
+</form>
